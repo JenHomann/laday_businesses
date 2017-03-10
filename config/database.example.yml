@@ -1,0 +1,15 @@
+common: &common
+  adapter: postgresql
+dev: &dev
+  <<: *common
+  username: postgres
+  password: password
+development:
+  <<: *dev
+  database: laday_businesses_development
+demo:
+  <<: *dev
+  database: laday_businesses_demo
+test:
+  <<: *dev
+  database: laday_businesses_test

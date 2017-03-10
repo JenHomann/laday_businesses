@@ -1,0 +1,32 @@
+--- !map:HashWithIndifferentAccess
+development:
+  action_mailer:
+    from_address: demo+laday_businesses@agapered.com
+    default_url_options:
+      host: localhost:3000
+      protocol: http
+    smtp_settings:
+      address: localhost
+      port: 1025
+#    twilio:
+#      sid: A String
+#      auth_token: A String
+#      phone_number: A Phone Number
+test:
+  action_mailer:
+    from_address: demo+laday_businesses@agapered.com
+    default_url_options:
+      host: localhost
+      protocol: http
+    smtp_settings:
+      address: localhost
+      port: 1025
+demo:
+  action_mailer:
+    default_url_options:
+      host: localhost
+      protocol: http
+    smtp_settings:
+      address: localhost
+      port: 1025
+production:

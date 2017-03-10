@@ -1,0 +1,18 @@
+# Ignore bundler config
+/.bundle
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp
+/config/database.yml
+/config/app_config.yml
+/config/secrets.yml
+.idea
+coverage
+public/assets
+public/system
+gemsurance_report.html
+*.~lock*
+.ruby-gemset
+.pryrc
+uploaded_files
+.DS_Store
