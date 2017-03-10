@@ -1,24 +1,2 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# laday_businesses
+A listing of Omaha area businesses owned or operated by anyone who identifies as a woman, including people who were not assigned female at birth and those who identify as femme, gender fluid, or gender non-conforming.
