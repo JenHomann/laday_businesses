@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310220640) do
+ActiveRecord::Schema.define(version: 20170310222644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,8 @@ ActiveRecord::Schema.define(version: 20170310220640) do
   end
 
   create_table "businesses", force: :cascade do |t|
-    t.string   "name",             null: false
+    t.string   "name",         null: false
     t.string   "description"
-    t.integer  "business_type_id", null: false
     t.string   "address_1"
     t.string   "address_2"
     t.string   "city"
@@ -37,9 +36,8 @@ ActiveRecord::Schema.define(version: 20170310220640) do
     t.string   "phone"
     t.string   "email"
     t.string   "website"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["business_type_id"], name: "index_businesses_on_business_type_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -50,5 +48,4 @@ ActiveRecord::Schema.define(version: 20170310220640) do
 
   add_foreign_key "business_categories", "businesses"
   add_foreign_key "business_categories", "categories"
-  add_foreign_key "businesses", "categories", column: "business_type_id"
 end

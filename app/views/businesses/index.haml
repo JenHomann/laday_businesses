@@ -1,0 +1,12 @@
+%h2 Omaha-Area Businesses Owned by Women
+%p A listing of Omaha area businesses owned or operated by anyone who identifies as a woman. This includes people who were not assigned female at birth and those who identify as femme, gender fluid, or gender non-conforming.
+
+%table
+  %thead Business Listings
+  %tr
+    %td Name
+    %td Category
+  - businesses.each do |business|
+    %tr
+      %td=business.name
+      %td=business.categories.map(&:name).join(', ')
