@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310212731) do
+ActiveRecord::Schema.define(version: 20170310220640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "business_types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "business_categories", force: :cascade do |t|
+    t.integer  "business_id", null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["business_id"], name: "index_business_categories_on_business_id", using: :btree
+    t.index ["category_id"], name: "index_business_categories_on_category_id", using: :btree
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -39,5 +42,13 @@ ActiveRecord::Schema.define(version: 20170310212731) do
     t.index ["business_type_id"], name: "index_businesses_on_business_type_id", using: :btree
   end
 
-  add_foreign_key "businesses", "business_types"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "business_categories", "businesses"
+  add_foreign_key "business_categories", "categories"
+  add_foreign_key "businesses", "categories", column: "business_type_id"
 end

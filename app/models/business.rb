@@ -1,5 +1,6 @@
 class Business < ApplicationRecord
-  belongs_to :business_type, inverse_of: :businesses
+  has_many :business_categories, inverse_of: :business
+  has_many :categories, through: :business_categories, inverse_of: :businesses
 
-  validates :name, :business_type, presence: true
+  validates :name, presence: true
 end
