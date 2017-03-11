@@ -1,26 +1,49 @@
-%h2 New Business
-= form_for business do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :description
-  = f.text_area :description
-  -#= f.label :categories
-  -#= f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), prompt: 'Select Categories', multiple: true
-  = f.label 'Address'
-  = f.text_field :address_1
-  = f.text_field :address_2
-  = f.label :city
-  = f.text_field :city
-  = f.label :state
-  = f.text_field :state
-  = f.label :zip
-  = f.text_field :zip
-  = f.label :contact_name
-  = f.text_field :contact_name
-  = f.label :phone
-  = f.text_field :phone
-  = f.label :email
-  = f.text_field :email
-  = f.label :website
-  = f.text_field :website
-  = f.submit 'Submit'
+.container
+  .jumbotron
+    %h1 New Business
+    %p Know of an amazing woman-owned business in Omaha? Add it here!
+    %p=link_to 'All', businesses_path, class: 'btn btn-primary btn-lg'
+
+.container
+  .row
+    .col-sm-12
+      = form_for business do |f|
+        %p.lead.text-muted Business Info
+        .row
+          .col-xs-12.col-md-6
+            .form-group
+              = f.text_field :name, value: f.object.name, placeholder: 'Name', class: 'form-control'
+          .col-xs-12.col-md-6
+            .form-group
+              = f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), {}, multiple: 'multiple', class: 'form-control select2'
+        .row
+          .col-xs-12
+            .form-group
+              = f.text_area :description, value: f.object.description, placeholder: 'Description', class: 'form-control'
+        .row
+          .col-sm-12.col-md-6
+            %p.lead.text-muted Contact Info
+            .form-group
+              = f.text_field :contact_name, placeholder: 'Contact Name', class: 'form-control'
+            .form-group
+              = f.text_field :phone, placeholder: 'Phone', class: 'form-control'
+            .form-group
+              = f.text_field :email, placeholder: 'Email', class: 'form-control'
+            .form-group
+              = f.text_field :website, placeholder: 'Website', class: 'form-control'
+          .col-sm-12.col-md-6
+            %p.lead.text-muted Location Info
+            .form-group
+              = f.text_field :address_1, value: f.object.address_1, placeholder: 'Address 1', class: 'form-control'
+            .form-group
+              = f.text_field :address_2, value: f.object.address_2, placeholder: 'Address 2', class: 'form-control'
+            .form-group
+              = f.text_field :city, value: 'Omaha', placeholder: 'City', class: 'form-control'
+            .form-group
+              = f.text_field :state, value: 'Nebraska', placeholder: 'State', class: 'form-control'
+            .form-group
+              = f.text_field :zip, value: f.object.zip, placeholder: 'Zipcode', class: 'form-control'
+        .row
+          .col-sm-12.text-right
+            = link_to 'Cancel', businesses_path, class: 'btn'
+            = f.submit 'Submit', class: 'btn btn-primary'

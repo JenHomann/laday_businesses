@@ -36,7 +36,8 @@ class BusinessesController < ApplicationController
                                      :contact_name,
                                      :phone,
                                      :email,
-                                     :website
+                                     :website,
+                                     category_ids: []
     )
   end
 end
