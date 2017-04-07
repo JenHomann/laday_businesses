@@ -15,7 +15,7 @@
               = f.text_field :name, value: f.object.name, placeholder: 'Name', class: 'form-control'
           .col-xs-12.col-md-6
             .form-group
-              = f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), {}, multiple: 'multiple', class: 'form-control select2'
+              = f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), {}, multiple: true, class: 'form-control select2', data: {uses_select2: true }
         .row
           .col-xs-12
             .form-group
