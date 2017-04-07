@@ -19,7 +19,7 @@
         %tbody
           - businesses.each do |business|
             %tr
-              %td=business.name
+              %td=link_to business.name, business_path(business)
               %td=business.categories.map(&:name).join(', ')
               %td=business.city
               %td
