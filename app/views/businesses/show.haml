@@ -1,0 +1,28 @@
+.container
+  .jumbotron
+    %h1=business.name
+    %p=business.description
+    %p
+      = link_to 'All Businesses', businesses_path, class: 'btn btn-primary btn-lg'
+      = link_to 'Add Another!', new_business_path, class: 'btn btn-default btn-lg'
+
+.container
+  .row
+    .col-sm-12
+      .row
+        - unless business.categories.empty?
+          .col-xs-12.col-sm-4
+            %h3 Categories
+            - business.categories.each do |category|
+              -#todo: add filter to index so we can link to a filtered set of businesses
+              %p= category.name
+        .col-xs-12.col-sm-4
+          %h3 Contact Info
+          %p=business.contact_name if business.contact_name.present?
+          %p=business.phone if business.phone.present?
+          %p=mail_to business.email if business.email.present?
+          %p=link_to business.website if business.website.present?
+        .col-xs-12.col-sm-4
+          %h3 Location Info
+          %p=business.full_address
+          %p=business.city_state_zip

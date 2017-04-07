@@ -6,6 +6,12 @@ class BusinessesController < ApplicationController
     render locals: { businesses: businesses, categories: categories }
   end
 
+  def show
+    business = Business.find(params[:id])
+
+    render locals: { business: business }
+  end
+
   def new
     business = Business.new
 
@@ -19,6 +25,22 @@ class BusinessesController < ApplicationController
       render :index, locals: { businesses: Business.all }
     else
       render :new, locals: { business: business }
+    end
+  end
+
+  def edit
+    business = Business.find(params[:id])
+
+    render locals: { business: business }
+  end
+
+  def update
+    business = Business.find(params[:id])
+
+    if business.update_attributes(business_params)
+      render :show, locals: { business: business }
+    else
+      render :edit, locals: { business: business }
     end
   end
 

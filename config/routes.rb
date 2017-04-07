@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root 'businesses#index'
 
-  resources :businesses, only: [:index, :new, :create]
+  resources :businesses, only: [:index, :show, :new, :create, :edit, :update]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
